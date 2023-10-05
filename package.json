@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "vue-command": "^35.2.1",
     "vue-terminal": "^1.2.0"
+  },
+  "devDependencies": {
+    "@vue/composition-api": "^1.7.2",
+    "node-sass": "^9.0.0",
+    "sass": "^1.68.0",
+    "sass-loader": "^13.3.2"
   }
 }

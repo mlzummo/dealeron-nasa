@@ -31,3 +31,6 @@ C:\Users\Mathew\source\repos\Solution1\webapi\obj\Debug\net7.0\refint\webapi.dll
 C:\Users\Mathew\source\repos\Solution1\webapi\obj\Debug\net7.0\webapi.pdb
 C:\Users\Mathew\source\repos\Solution1\webapi\obj\Debug\net7.0\webapi.genruntimeconfig.cache
 C:\Users\Mathew\source\repos\Solution1\webapi\obj\Debug\net7.0\ref\webapi.dll
+C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\GraphQL.dll
+C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\GraphQLParser.dll
+C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\GraphQL.SystemTextJson.dll

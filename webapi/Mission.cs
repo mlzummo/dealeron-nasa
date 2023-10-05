@@ -1,5 +1,6 @@
-﻿namespace webapi
-{
+﻿namespace webapi;
+
+using static Map;
     public class Mission
     {
         private List<Rover> rovers = new List<Rover>();
@@ -21,4 +22,3 @@
 
 
     }
-}

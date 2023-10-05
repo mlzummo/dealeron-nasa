@@ -3,10 +3,9 @@ using System.Reflection.Metadata;
 
 namespace webapi.Controllers;
 
-    [ApiController]
-    [Route("[controller]")]
-    public class MissionController : ControllerBase
-    {
+[ApiController]
+public class MissionController : ControllerBase
+{
 
     //        [HttpGet(Name = "SetParameters")]
     //        public IEnumerable<WeatherForecast> Set()
@@ -22,20 +21,40 @@ namespace webapi.Controllers;
 
 
 
+    /*    [Route("[controller]")]
+        public ActionResult Get()
+        {
+            //Mission = new Mission();
+            //Map map = new Map(5, 5);
 
-    public IActionResult Get()
-    {
-        //Mission = new Mission();
-        Map map = new Map(5,5);
-
-        return Ok(map);
-    }
-/*    }
+            return Ok("hello");
+        }*/
+    [Route("[controller]")]
     [HttpGet]
+    public IEnumerable<string> Get()
+    {
+       return new string[] {"ij","ok"};
+    }
+
+    [Route("[controller]/[action]")]
+    [AcceptVerbs("GET")]
+    [HttpGet]
+    public ActionResult Map()
+    {
+        return Ok("map");
+    }
+
+    [Route("[controller]/[action]")]
+    [HttpPost]
+    public ActionResult Map(string data)
+    {
+        return Ok(data);
+    }
+
+/*    [HttpGet]
     public ActionResult MissionController
     {
-        return Ok(("hello);
+         return Ok("hello);
     }*/
+
 }
-
-

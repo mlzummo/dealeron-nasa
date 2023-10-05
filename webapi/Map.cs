@@ -1,4 +1,15 @@
-﻿//namespace webapi;
+﻿namespace webapi;
+
+
+// to be honest I am not impressed with graphQL; I can do (and with simpler queries more with SQL)
+
+using System;
+using System.Threading.Tasks;
+using GraphQL;
+using GraphQL.Types;
+using GraphQL.SystemTextJson;
+using Microsoft.AspNetCore.Http.HttpResults;
+
 class Map
 {
     int ix = 0;
@@ -15,17 +26,18 @@ class Map
 
     public static Map Instance
     {
-
         // create singleton
-        get
+/*        get
         {
+
+            // Singleton Pattern 
             if (instance == null)
             {
                 instance = new Map();
             }
 
             return Instance;
-        }
+        }*/
     }
 
     public Rover[] Rovers
@@ -34,9 +46,13 @@ class Map
         set { rovers = value; }
     }
 
-    public Map(int x = 0, int y = 0)
+    public Map(int ix, int iy, int bx, int by)
     {
-        this.bx = x;
-        this.by = y;
+        this.ix = ix;
+        this.iy = iy;
+        this.bx = bx;
+        this.by = by;
+     /*   this.map = map;*/
+
     }
 }
