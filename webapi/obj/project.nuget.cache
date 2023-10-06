@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "K5Y42TeMcDeyBwGbGUpd82Y0pXRuIbaNom8NHt8pzJ30FyhYu7HcH9sYt31mngFjVLGUNVPyi6K42OZwqLUoyQ==",
+  "dgSpecHash": "0+udH6sJVQqNLYqLxJ7wIbOX68Piy6yVEcnQtAjPw1gjmjez+SqfhYhS6ftE8qmz1O/SlaeWITUswr+YupoR8Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Mathew\\source\\repos\\Solution1\\webapi\\webapi.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,7 @@
     "C:\\Users\\Mathew\\.nuget\\packages\\graphql-parser\\8.4.0\\graphql-parser.8.4.0.nupkg.sha512",
     "C:\\Users\\Mathew\\.nuget\\packages\\graphql.microsoftdi\\7.6.0\\graphql.microsoftdi.7.6.0.nupkg.sha512",
     "C:\\Users\\Mathew\\.nuget\\packages\\graphql.server.transports.aspnetcore\\7.6.0\\graphql.server.transports.aspnetcore.7.6.0.nupkg.sha512",
-    "C:\\Users\\Mathew\\.nuget\\packages\\graphql.systemtextjson\\7.6.1\\graphql.systemtextjson.7.6.1.nupkg.sha512",
+    "C:\\Users\\Mathew\\.nuget\\packages\\graphql.systemtextjson\\7.6.0\\graphql.systemtextjson.7.6.0.nupkg.sha512",
     "C:\\Users\\Mathew\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.11\\microsoft.aspnetcore.openapi.7.0.11.nupkg.sha512",
     "C:\\Users\\Mathew\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Mathew\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.0.0\\microsoft.extensions.dependencyinjection.abstractions.2.0.0.nupkg.sha512",
@@ -19,7 +19,9 @@
     "C:\\Users\\Mathew\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\Mathew\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
     "C:\\Users\\Mathew\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
-    "C:\\Users\\Mathew\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.4.0\\system.runtime.compilerservices.unsafe.4.4.0.nupkg.sha512"
+    "C:\\Users\\Mathew\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.4.0\\system.runtime.compilerservices.unsafe.4.4.0.nupkg.sha512",
+    "C:\\Users\\Mathew\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\Mathew\\.nuget\\packages\\system.text.json\\7.0.3\\system.text.json.7.0.3.nupkg.sha512"
   ],
   "logs": []
 }

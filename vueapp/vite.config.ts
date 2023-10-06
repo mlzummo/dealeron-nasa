@@ -34,6 +34,10 @@ export default defineConfig({
             '^/weatherforecast': {
                 target: 'https://localhost:7000/',
                 secure: false
+            },
+            '^/mission': {
+                target: 'https://localhost:7000/',
+                secure: false
             }
         },
         port: 5173,

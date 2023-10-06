@@ -114,7 +114,7 @@ import TextAreaVue from './TextAreaVue.vue'
 
                 async function send(data: String) {
                     try {
-                        const response = await fetch('Mission',
+                        const response = await fetch('/mission',
                             {
                                 method: 'POST',
                                 headers: {
