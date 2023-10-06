@@ -80,7 +80,7 @@ import Terminal from './Terminal.vue'
         <a href="https://twitter.com/vuejs" target="_blank" rel="noopener">@vuejs</a>
         twitter account for latest news in the Vue world.
     </WelcomeItem>
-
+    ---
     <WelcomeItem>
         <template #icon>
             <SupportIcon />

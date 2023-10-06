@@ -99,7 +99,7 @@
         },
         created() {
             // fetch the data when the view is created and the data is
-            // already being observed
+            // already being observed000000
             this.fetchData();
         },
         watch: {

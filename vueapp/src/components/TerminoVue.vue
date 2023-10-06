@@ -56,19 +56,90 @@ import TextAreaVue from './TextAreaVue.vue'
                     '1. Print Hello World\n',
                     '2. Add Two Numbers\n',
                     '3. Initialize Map\n',
-                    '4. Enter Rover Instructions'
+                    '4. Enter Rover Instructions',
+                    'test. Start Test'
                 ];
+
+                msg.forEach((line) => {
+                    term2.output(line);
+                })
+
+                // procedural
+
+                let input = await term2.input("What would you like to do?")
+                if (input === "test") {
+                    await test() // example of running your own custom function
+                }
+
+
+
+                async function test() {
+                    /*                    let number1 = await term2.input("First number to add")
+                                        let number2 = await term2.input("Second number to add")*/
+                    let input = await term2.input("Enter Input");
+                    let response = await send(input);
+
+                    response.then(
+                        term2.output(response)
+                    );
+                    
+
+                    // do logic to determine if its a valid input param
+
+                    // do rest call and return to terminal
+
+
+                    /*term2.output(Number(number1) + Number(number2));*/
+                }
+
+
+
+
+/*                methods: {
+                    fetchData(): void {
+                        this.post = null;
+                        this.loading = true;
+
+                        fetch('weatherforecast')
+                    .then(r => r.json())
+                            .then(json => {
+                                this.post = json as Forecasts;
+                                this.loading = false;
+                                return;
+                            });
+                    }
+                },
+*/
+
+
+                async function send(data: String) {
+                    try {
+                        const response = await fetch('Mission/',
+                            {
+                                method: 'POST',
+                                headers: {
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(data)
+                            }
+                        );
+                        return await response.json(); // return response from mars
+                    } catch (error) {
+                        console.error(error);
+                    }
+                }
+
+
 
 /*                term2.output(`
     2. Add Two Numbers
     3. 
     3. Exit`)*/
-                msg.forEach((line) => {
-                    term2.output(line);
-                })
+ 
     
 
-                // call Termino.js / your terminal for inital input
+           /*     // call Termino.js / your terminal for inital input
                 let term2value = await term2.input("What would you like to do?")
 
 
@@ -105,7 +176,7 @@ import TextAreaVue from './TextAreaVue.vue'
                 if (term2value != "3") {
                     setTimeout(basicTerminalApp, term2value)
                 }
-
+                */
             }
 
             basicTerminalApp()
@@ -144,7 +215,10 @@ import TextAreaVue from './TextAreaVue.vue'
                         return;
                     });
                 return true;
-            }
+            },
+            mission() {
+
+            },
         },
     });
 </script>
