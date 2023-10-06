@@ -114,7 +114,7 @@ import TextAreaVue from './TextAreaVue.vue'
 
                 async function send(data: String) {
                     try {
-                        const response = await fetch('Mission/',
+                        const response = await fetch('Mission',
                             {
                                 method: 'POST',
                                 headers: {
@@ -126,7 +126,7 @@ import TextAreaVue from './TextAreaVue.vue'
                         );
                         return await response.json(); // return response from mars
                     } catch (error) {
-                        console.error(error);
+                        console.error('Error: (re)enter');
                     }
                 }
 

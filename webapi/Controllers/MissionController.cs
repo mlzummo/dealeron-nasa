@@ -22,10 +22,12 @@ public class MissionController : ControllerBase
         return new JsonResult(map);
     }
 
-/*    [Route("[controller]/[action]")]
+    [Route("[controller]/[action]")]
     [HttpPost]
     public ActionResult Map(string data)
     {
         return Ok(data);
-    }*/
+    }
+
+
 }
