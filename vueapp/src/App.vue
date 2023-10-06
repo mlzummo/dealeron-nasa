@@ -15,11 +15,29 @@
         </div>
     </header>
 
-  <main>
-      <!--  <TheWelcome />-->
-      <!--<Index /> -->
-      <TerminoVue />
-  </main>
+    <main>
+        <!--  <TheWelcome />-->
+        <!--<Index /> -->
+        <TerminoVue />
+
+        <h2>Example</h2>
+        <pre>
+Input:
+
+5 5
+1 2 N
+LMLMLMLMM
+3 3 E
+MMRMMRMRRM
+        </pre>
+        <pre>
+Output:
+
+1 3 N
+5 1 E
+        </pre>
+
+    </main>
 </template>
 
 <style scoped>

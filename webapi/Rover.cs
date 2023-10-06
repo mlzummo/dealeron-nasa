@@ -31,7 +31,7 @@ class Rover : IRoverInterface
     public void Instructions(string Input)
     {
         Console.WriteLine(Input);
-        string[] instructions = Input.Split(' ');
+        string[] instructions = Input.Split("\n");
 
         //        foreach (var instruction in instructions)
         //        {

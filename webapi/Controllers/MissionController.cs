@@ -41,7 +41,8 @@ public class MissionController : ControllerBase
     [HttpGet]
     public ActionResult Map()
     {
-        return Ok("map");
+        Map map = new Map(5, 5);
+        return new JsonResult(map);
     }
 
     [Route("[controller]/[action]")]
