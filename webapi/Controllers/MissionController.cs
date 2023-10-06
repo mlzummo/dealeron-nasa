@@ -1,4 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Text;
+
+
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using System.Text;
+using System.Threading.Tasks;
+using System.Text.Json;
+
 namespace webapi.Controllers;
 
 [ApiController]
@@ -6,14 +15,22 @@ public class MissionController : ControllerBase
 {
 
 
-/*    private readonly ILogger<WeatherForecastController> _logger;
+    /*    private readonly ILogger<WeatherForecastController> _logger;
 
 
-    public MissionController(ILogger<MissionController> logger)
+        public MissionController(ILogger<MissionController> logger)
+        {
+            _logger = logger;
+        }*/
+
+
+    private async Task<string> ReadRequestBodyAsync(HttpRequest request)
     {
-        _logger = logger;
-    }*/
-
+        using (StreamReader reader = new StreamReader(request.Body, Encoding.UTF8))
+        {
+            return await reader.ReadToEndAsync();
+        }
+    }
 
     [Route("[controller]")]
     [HttpGet]
@@ -24,13 +41,33 @@ public class MissionController : ControllerBase
 
     [Route("[controller]")]
     [HttpPost]
-    public IActionResult onPost()
+    public async Task<IActionResult> onPostAsync()
     {
 
-        var body = Request.Body;
 
 
-        return Ok(body);
+
+        /*        var body = Request.Body;
+        */
+
+        string requestBody = await ReadRequestBodyAsync(Request);
+
+
+        string unescapedBody = JsonSerializer.Deserialize<string>(requestBody);
+
+
+
+        string[] lines = unescapedBody.Split(
+            new string[] { "\r\n", "\r", "\n" },
+            StringSplitOptions.None
+        );
+
+        /*     var rawRequestBody = await Request.GetRawBodyAsync();
+
+                 var rawMessage = await Request.Content.ReadAsStringAsync();
+     */
+
+        return Ok(lines);
         /*string jsonString = JsonSerializer.Serialize(Request.ToString());
         return Ok(new JsonResult(jsonString));
         // Get the request object.
