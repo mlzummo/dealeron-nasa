@@ -12,8 +12,6 @@
             this.rovers.Add(new Rover());
             this.rovers.Add(new Rover());
 
-            
-
         }
         public void AddRover()
         {

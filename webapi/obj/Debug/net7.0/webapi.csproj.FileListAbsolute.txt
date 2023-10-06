@@ -34,17 +34,5 @@ C:\Users\Mathew\source\repos\Solution1\webapi\obj\Debug\net7.0\ref\webapi.dll
 C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\GraphQL.dll
 C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\GraphQLParser.dll
 C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\GraphQL.SystemTextJson.dll
-C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\GraphQL.DataLoader.dll
 C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\GraphQL.MicrosoftDI.dll
-C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\GraphQL.NewtonsoftJson.dll
-C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\GraphQL.Server.Core.dll
 C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\GraphQL.Server.Transports.AspNetCore.dll
-C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\GraphQL.Server.Transports.AspNetCore.SystemTextJson.dll
-C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\GraphQL.Server.Transports.Subscriptions.Abstractions.dll
-C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\GraphQL.Server.Ui.Playground.dll
-C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\GraphQL.SystemReactive.dll
-C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\Newtonsoft.Json.dll
-C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\System.Reactive.Core.dll
-C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\System.Reactive.Linq.dll
-C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\System.Reactive.dll
-C:\Users\Mathew\source\repos\Solution1\webapi\bin\Debug\net7.0\System.Reactive.xml

@@ -16,9 +16,9 @@ class Map
     int ix = 0; // init
     int iy = 0; // //init 
 
-/*    //X,Y 
-    public int bx = 0; // boundary
-    public int by = 0;*/
+    /*    //X,Y 
+        public int bx = 0; // boundary
+        public int by = 0;*/
 
     public int bx { get; set; }
     public int by { get; set; }
@@ -26,7 +26,7 @@ class Map
     private static Map instance = null;
 
 
-/*    private List<Map> map = new List<Map>();*/
+    /*    private List<Map> map = new List<Map>();*/
     private Rover[] rovers;
 
 
@@ -53,16 +53,7 @@ class Map
 
     public Map(int bx, int by)
     {
-/*        this.ix = ix;
-        this.iy = iy;*/
         this.bx = bx;
         this.by = by;
-        /*   this.map = map;*/
-        //return this;
-    }
-
-    public void save()
-    {
-        String connectionString = "";
     }
 }
