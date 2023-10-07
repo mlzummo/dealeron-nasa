@@ -1,8 +1,5 @@
 ﻿namespace webapi;
 
-
-// to be honest I am not impressed with graphQL; I can do (and with simpler queries more with SQL)
-
 using System;
 using System.Threading.Tasks;
 using GraphQL;
@@ -26,11 +23,11 @@ class Map
     private static Map instance = null;
 
 
-    /*    private List<Map> map = new List<Map>();*/
-    private Rover[] rovers;
+    private List<Map> map = new List<Map>();
+    /*private List<Rover> rovers = new List<Rover>();*/
+    private Rover?[]? rovers;
 
-
-    public static Map Instance
+    private static Map Instance
     {
         // create singleton
         get

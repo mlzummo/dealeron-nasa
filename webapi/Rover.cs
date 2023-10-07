@@ -10,24 +10,47 @@ using Microsoft.AspNetCore.Components.Routing;
 
 interface IRoverInterface
 {
-    enum Orientation
-    {
-        N = 'N',
-        S = 'S',
-        E = 'E',
-        W = 'W'
-    }
+    /*    enum Orientation
+        {
+            N = 'N',
+            S = 'S',
+            E = 'E',
+            W = 'W'
+        }
 
-    void Instructions(string inst);
-    //Orientation Heading { get; set; }
-    //Orientation Heading;
+        void Instructions(string inst);
+        //Orientation Heading { get; set; }
+        //Orientation Heading;*/
+
+    public struct Location
+    {
+        public enum Orientation
+        {
+            N,
+            S,
+            E,
+            W
+        }
+
+        public Orientation Direction { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
+
+        public Location(Orientation direction, int x, int y)
+        {
+            Direction = direction;
+            X = x;
+            Y = y;
+        }
+    }
 }
 
 class Rover : IRoverInterface
 {
     //position of rover in coordinates of map
     Map Map;
-    Orientation Heading;
+    /*Orientation Heading;*/
+    Location location;
     public void Instructions(string Input)
     {
         Console.WriteLine(Input);
@@ -47,7 +70,7 @@ class Rover : IRoverInterface
         //            }
         //        }
 
-        foreach (char c in Input)
+/*        foreach (char c in Input)
         {
             switch (c)
             {
@@ -67,7 +90,7 @@ class Rover : IRoverInterface
                     // Ignore invalid instructions.
                     break;
             }
-        }
+        }*/
     }
 
     public void output(string inst)
@@ -75,9 +98,12 @@ class Rover : IRoverInterface
 
     }
 
-    public Rover()
+    public Rover(int x, int y, Orientation heading)
     {
-        // would love to logic here but c# doesnt like it
+        /*position.Split(" ").t*/
+
+        // real world we would have to do alot of tests of location 
+
     }
 
     /*    private int Move(String instr)

@@ -41,143 +41,128 @@ import TextAreaVue from './TextAreaVue.vue'
         },
         mounted() {
             // initialize a Terminal via Termino.js
-            let term2 = Termino(document.getElementById("termino"))
 
-            function print_hello_world() {
-                term2.output("hello world")
-            }
+           
+                let term2 = Termino(document.getElementById("termino"))
 
+      /*          function print_hello_world() {
+                    term2.output("hello world")
+                }*/
 
-
-            async function basicTerminalApp() {
-
-                const msg = [
-                    'Welcome to NASA Mars Mission Control!\n',
-                    '1. Print Hello World\n',
-                    '2. Add Two Numbers\n',
-                    '3. Initialize Map\n',
-                    '4. Enter Rover Instructions',
-                    'test. Start Test'
-                ];
-
-                msg.forEach((line) => {
-                    term2.output(line);
-                })
-
-                // procedural
-
-                let input = await term2.input("What would you like to do?")
-                if (input === "test") {
-                    await test() // example of running your own custom function
-                }
+                help();
 
 
+                async function help() {
 
-                async function test() {
-                    /*                    let number1 = await term2.input("First number to add")
-                                        let number2 = await term2.input("Second number to add")*/
-                    let input = await term2.input("Enter Input");
-                    let response = await send(input);
+                    const msg = [
+                        'Welcome to NASA Mars Mission Control!\n',
+                        '1. Print Hello World\n',
+                        '2. Add Two Numbers\n',
+                        '3. Initialize Map\n',
+                        '4. Enter Rover Instructions',
+                        'test. Start Test'
+                    ];
 
-                    response.then(
-                        term2.output(response)
-                    );
+                    msg.forEach((line) => {
+                        term2.output(line);
+                    })
+
                     
-
-                    // do logic to determine if its a valid input param
-
-                    // do rest call and return to terminal
-
-
-                    /*term2.output(Number(number1) + Number(number2));*/
                 }
 
 
+async function test() {
+    /*                    let number1 = await term2.input("First number to add")
+                        let number2 = await term2.input("Second number to add")*/
+    let input = await term2.input("Enter Input");
+    let response = await send(input);
+
+    response.then(
+        term2.output(response)
+    );
+
+    setTimeout(basicTerminalApp, input)
 
 
-/*                methods: {
-                    fetchData(): void {
-                        this.post = null;
-                        this.loading = true;
+    // do logic to determine if its a valid input param
 
-                        fetch('weatherforecast')
-                    .then(r => r.json())
-                            .then(json => {
-                                this.post = json as Forecasts;
-                                this.loading = false;
-                                return;
-                            });
-                    }
-                },
-*/
+    // do rest call and return to terminal
 
 
-                async function send(data: String) {
-                    try {
-                        const response = await fetch('/mission',
-                            {
-                                method: 'POST',
-                                headers: {
-                                    'Accept': 'application/json',
-                                    'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify(data)
-                            }
-                        );
-                        return await response.json(); // return response from mars
-                    } catch (error) {
-                        console.error('Error: (re)enter');
-                    }
+    /*term2.output(Number(number1) + Number(number2));*/
+} // end test
+
+            async function send(data: String) {
+                try {
+                    const response = await fetch('mission',
+                        {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data)
+                        }
+                    );
+                    return await response.json(); // return response from mars
+                } catch (error) {
+                    console.error('Error: (re)enter');
                 }
-
-
-
-/*                term2.output(`
-    2. Add Two Numbers
-    3. 
-    3. Exit`)*/
- 
-    
-
-           /*     // call Termino.js / your terminal for inital input
-                let term2value = await term2.input("What would you like to do?")
-
-
-                // function to add numbers
-                async function add_numbers() {
-                    let number1 = await term2.input("First number to add")
-                    let number2 = await term2.input("Second number to add")
-                    term2.output(Number(number1) + Number(number2))
-                }
-
-
-
-                if (term2value === "1") {
-                    await print_hello_world() // example of running your own custom function
-                }
-
-                if (term2value === "2") {
-                    await add_numbers() // example of running your own custom function
-                }
-
-                if (term2value === "3") {
-                    term2.output("You chose option 3, exiting terminal")
-                    await term2.delay(2000)
-                    term2.kill() // exit terminal
-                }
-
-                // if not in options
-
-                if (term2value != "1" && term2value != "2" && term2value != "3") {
-                    term2.output("Invalid choice")
-                }
-
-                // after called - repeat function again (if not exit menu)
-                if (term2value != "3") {
-                    setTimeout(basicTerminalApp, term2value)
-                }
-                */
             }
+
+
+                async function basicTerminalApp() {
+
+                    let input = await term2.input("")
+
+                    // procedural
+                    /*                let init = await term2.input("");*/
+
+
+                    /*let input = await term2.input("What would you like to do?")*/
+
+
+
+                    switch (input) {
+                        case "test": test();
+                            break;
+                        case "help": help();
+                            break;
+                        default: break
+
+                    }
+      /*              if (input === "test") {
+                        await test() // example of running your own custom function
+                    }*/
+
+
+
+
+
+
+
+
+                    /*                methods: {
+                                        fetchData(): void {
+                                            this.post = null;
+                                            this.loading = true;
+                
+                                            fetch('weatherforecast')
+                                        .then(r => r.json())
+                                                .then(json => {
+                                                    this.post = json as Forecasts;
+                                                    this.loading = false;
+                                                    return;
+                                                });
+                                        }
+                                    },
+                    */
+
+
+
+                    
+                    setTimeout(basicTerminalApp,input)
+                }
 
             basicTerminalApp()
         },

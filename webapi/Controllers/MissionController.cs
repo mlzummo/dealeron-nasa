@@ -7,6 +7,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace webapi.Controllers;
 
@@ -56,18 +57,63 @@ public class MissionController : ControllerBase
         string unescapedBody = JsonSerializer.Deserialize<string>(requestBody);
 
 
+        /*
+                string[] lines = unescapedBody.Split(
+                    new string[] { "\r\n", "\r", "\n" },
+                    StringSplitOptions.None
+                );*/
 
-        string[] lines = unescapedBody.Split(
-            new string[] { "\r\n", "\r", "\n" },
-            StringSplitOptions.None
-        );
+        string[] lines = unescapedBody.Split(new string[] { "\r\n", "\r", "\n"}, StringSplitOptions.None);
+        int[] mapBoundary = lines[0].Split(' ').Select(int.Parse).ToArray();
+
+        try
+        {
+            Map map = new Map(mapBoundary[0], mapBoundary[1]);
+
+        } catch (Exception ex)
+        {
+            //todo: throw error to console
+        }
+
+
+
+        for (int i = 1; i < lines.Count(); i+=2)
+        {
+            string[] position = lines[i].Split(' ');
+           /* string[] instructions = lines[i+1].Split(' ');*/
+
+            Rover rover = new Rover(position[0], position[1], position[3]);
+        }
+
+
+        int[] result = lines[0].Split(' ').Select(int.Parse).ToArray();
+
+        /*        int[] split = lines[0].Split(
+                  new string[] { " " },
+                  StringSplitOptions.None
+                );*/
+
+       
+
+/*        Rover rover = new Rover(x, y, heading);
+        rover.move("LMLMLMLMM");*/
+
+
+
+        /*Mission mission = new Mission(map);*/
+        
+
+
+
 
         /*     var rawRequestBody = await Request.GetRawBodyAsync();
 
                  var rawMessage = await Request.Content.ReadAsStringAsync();
      */
 
-        return Ok(lines);
+
+
+        return Ok(map);
         /*string jsonString = JsonSerializer.Serialize(Request.ToString());
         return Ok(new JsonResult(jsonString));
         // Get the request object.
