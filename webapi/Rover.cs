@@ -4,54 +4,25 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.Extensions.Options;
 using System.Xml.Linq;
 using System;
-using static IRoverInterface;
-using static Map;
-using Microsoft.AspNetCore.Components.Routing;
+using Microsoft.Extensions.Primitives;
+using Microsoft.OpenApi.Any;
 
+/*using static IRoverInterface;
+using static Map;
+using Microsoft.AspNetCore.Components.Routing;*/
 interface IRoverInterface
 {
-    /*    enum Orientation
-        {
-            N = 'N',
-            S = 'S',
-            E = 'E',
-            W = 'W'
-        }
-
-        void Instructions(string inst);
-        //Orientation Heading { get; set; }
-        //Orientation Heading;*/
-
-    public struct Location
-    {
-        public enum Orientation
-        {
-            N,
-            S,
-            E,
-            W
-        }
-
-        public Orientation Direction { get; set; }
-        public int X { get; set; }
-        public int Y { get; set; }
-
-        public Location(Orientation direction, int x, int y)
-        {
-            Direction = direction;
-            X = x;
-            Y = y;
-        }
-    }
+/*    public Location location;
+/*    public Location location;
+    public Map map;*/
 }
 
 class Rover : IRoverInterface
 {
-    //position of rover in coordinates of map
-    Map Map;
-    /*Orientation Heading;*/
-    Location location;
-    public void Instructions(string Input)
+    public Location location { get; set; }
+    public Map map { get; set; }
+    public string instructions { get; set; } 
+/*    public void Instructions(string Input)
     {
         Console.WriteLine(Input);
         string[] instructions = Input.Split("\n");
@@ -70,7 +41,7 @@ class Rover : IRoverInterface
         //            }
         //        }
 
-/*        foreach (char c in Input)
+*//*        foreach (char c in Input)
         {
             switch (c)
             {
@@ -90,28 +61,53 @@ class Rover : IRoverInterface
                     // Ignore invalid instructions.
                     break;
             }
-        }*/
-    }
+        }*//*
+    }*/
 
     public void output(string inst)
     {
 
     }
 
-    public Rover(int x, int y, Orientation heading)
+    public Rover(Location location)
     {
+
+        this.location = location;
         /*position.Split(" ").t*/
 
         // real world we would have to do alot of tests of location 
-
+  
     }
 
-    /*    private int Move(String instr)
-        {
-            // todo: cosign math would be best here for move left right
+    public string Move(String input)
+    {
+        char[] characters = input.ToCharArray();
+        string Result = "";
 
-            return 0;
-        }*/
+
+        foreach (char c in characters)
+        {
+            switch (c)
+            {
+                case 'L':
+                    Result = "my name";
+                    break;
+                case 'R':
+                  
+                    break;
+                case 'M':
+           
+                    break;
+                default:
+                    // Ignore invalid instructions.
+                    break;
+            }
+
+
+        }
+        return input;
+
+    }
 
     // code from others
 

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
+using static webapi.Location;
+using Microsoft.AspNetCore.Components.Routing;
 
 namespace webapi.Controllers;
 
@@ -76,32 +78,45 @@ public class MissionController : ControllerBase
         }
 
 
+        List<Rover> list = new List<Rover>();
 
         for (int i = 1; i < lines.Count(); i+=2)
         {
-            string[] position = lines[i].Split(' ');
-           /* string[] instructions = lines[i+1].Split(' ');*/
 
-            Rover rover = new Rover(position[0], position[1], position[3]);
+            //secion 1
+            // we are grabbing two at a time an incrimenting +=2 
+            // lets create a location struct, with all the goodies ( see LocationStruct.cs for details)
+            string[] position = lines[i].Split(' ');
+            Orientation orientation = (Orientation)Enum.Parse(typeof(Orientation), position[2]);
+            Location roverLocation = new Location(orientation, int.Parse(position[0]), int.Parse(position[1]));
+            Rover rover = new Rover(roverLocation);
+
+            // section 2
+            // we are grabbing two at a time an incrimenting +=2 
+            // move instructions here
+            string instructions = lines[i + 1];
+            rover.Move(instructions);
+
+            list.Add(rover);
         }
 
 
-        int[] result = lines[0].Split(' ').Select(int.Parse).ToArray();
+ /*       int[] result = lines[0].Split(' ').Select(int.Parse).ToArray();*/
 
         /*        int[] split = lines[0].Split(
                   new string[] { " " },
                   StringSplitOptions.None
                 );*/
 
-       
 
-/*        Rover rover = new Rover(x, y, heading);
-        rover.move("LMLMLMLMM");*/
+
+        /*        Rover rover = new Rover(x, y, heading);
+                rover.move("LMLMLMLMM");*/
 
 
 
         /*Mission mission = new Mission(map);*/
-        
+
 
 
 
@@ -113,7 +128,7 @@ public class MissionController : ControllerBase
 
 
 
-        return Ok(map);
+        return Ok(list);
         /*string jsonString = JsonSerializer.Serialize(Request.ToString());
         return Ok(new JsonResult(jsonString));
         // Get the request object.
