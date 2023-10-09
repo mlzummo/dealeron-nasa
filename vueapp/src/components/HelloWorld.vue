@@ -52,29 +52,10 @@
                 
                 <span>Christa McAuliffe, teacher and Challenger astronaut</span>
             </blockquote>
-            <!--NASA : Mars Mission Control. Type "help" for a list of commands to-->
-        </div>
+            Note: There is bugs. I am aware of them. Creating this has been a rewarding opportunity to explore JS terminal console interfaces and challenges, as well as some .NET concepts, and other approaches to reimplimenting.
+            -Boundary checking being one of them. see the README.MD file
 
-<!--        <div v-if="post" class="content">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Temp. (C)</th>
-                        <th>Temp. (F)</th>
-                        <th>Summary</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="forecast in post" :key="forecast.date">
-                        <td>{{ forecast.date }}</td>
-                        <td>{{ forecast.temperatureC }}</td>
-                        <td>{{ forecast.temperatureF }}</td>
-                        <td>{{ forecast.summary }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>-->
+        </div>
     </div>
 </template>
 
@@ -93,32 +74,9 @@
     export default defineComponent({
         data(): Data {
             return {
-                loading: false,
+                loading: true,
                 post: null
             };
-        },
-        created() {
-            // fetch the data when the view is created and the data is
-            // already being observed000000
-            this.fetchData();
-        },
-        watch: {
-            // call again the method if the route changes
-            '$route': 'fetchData'
-        },
-        methods: {
-            fetchData(): void {
-                this.post = null;
-                this.loading = true;
-
-                fetch('weatherforecast')
-                    .then(r => r.json())
-                    .then(json => {
-                        this.post = json as Forecasts;
-                        this.loading = false;
-                        return;
-                    });
-            }
         },
     });
 </script>

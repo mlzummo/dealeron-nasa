@@ -72,7 +72,7 @@ import TextAreaVue from './TextAreaVue.vue'
 
             async function test() { // // todo: mount these on vue methods
 
-                let input = await term2.input("Enter Input:");
+                let input = await term2.input("Enter Input: (Copy and paste the block from below)");
                 let response = await send(input);
 
                 console.log(response)
@@ -105,7 +105,7 @@ import TextAreaVue from './TextAreaVue.vue'
 
 
             async function basicTerminalApp() {
-
+                
                 let input = await term2.input("")
 
                 switch (input) {
@@ -113,7 +113,9 @@ import TextAreaVue from './TextAreaVue.vue'
                         break;
                     case "help": help();
                         break;
-                    default: break
+                    default:
+/*                        setTimeout(basicTerminalApp, input)
+*/                        break;
 
                 }
 
