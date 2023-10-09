@@ -10,12 +10,8 @@ using Microsoft.AspNetCore.Http.HttpResults;
 class Map
 {
     //0,0
-    int ix = 0; // init
-    int iy = 0; // //init 
-
-    /*    //X,Y 
-        public int bx = 0; // boundary
-        public int by = 0;*/
+    int ix = 0; 
+    int iy = 0; 
 
     public int bx { get; set; }
     public int by { get; set; }

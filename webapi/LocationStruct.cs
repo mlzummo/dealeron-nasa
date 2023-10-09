@@ -5,19 +5,30 @@ namespace webapi
 {
     public struct Location
     {
+        /*        public enum Orientation
+                {
+                    N = 'N',
+                    S = 'S',
+                    E = 'E',
+                    W = 'W'
+                }*/
+
         public enum Orientation
         {
-            N = 'N',
-            S = 'S',
-            E = 'E',
-            W = 'W'
+            N =  0,
+            E =  90,
+            S =  180,
+            W =  270,
         }
 
         /*public Orientation Direction { get; set; }*/ // makes public as export object with get set
         public int X { get; set; } = 0;
         public int Y { get; set; } = 0;
 
-        public string Heading { get; } // this(x,y) makes a public var
+        public string Heading { get; set; } // this(x,y) makes a public var
+        public Orientation direction { get; internal set; }
+
+        public double HeadingDegrees { get; set; }
 
         public Location(Orientation direction, int x, int y)
         {
@@ -27,6 +38,47 @@ namespace webapi
             this.X = x;
             this.Y = y;
         }
+
+
+        /*        public void Rotate(double angle)
+                {
+                    // Rotate the coordinates of the spaceship.
+                    (int x, int y) rotatedCoordinates = RotateCoordinates(X, Y, angle);
+
+                    // Update the spaceship's coordinates.
+                    X = rotatedCoordinates.x;
+                    Y = rotatedCoordinates.y;
+
+                    // Update the spaceship's heading.
+                    HeadingDegrees = (HeadingDegrees + angle) % 360;
+                    this.Heading = ConvertAngleToCardinalDirection(HeadingDegrees);
+                }*/
+
+        /*        public static (int x, int y) RotateCoordinates(int x, int y, double theta)
+                {
+                    // Convert the angle to radians.
+                    double radians = theta * Math.PI / 180;
+
+                    // Calculate the new coordinates.
+                    int newX = (int)(x * Math.Cos(radians) - y * Math.Sin(radians));
+                    int newY = (int)(x * Math.Sin(radians) + y * Math.Cos(radians));
+
+                    // Return the new coordinates.
+                    return (newX, newY);
+                }
+
+                public static string ConvertAngleToCardinalDirection(double angle)
+                {
+                    // Normalize the angle to the range 0 to 360 degrees.
+                    angle %= 360;
+
+                    // Divide the angle into eight sectors, each corresponding to a cardinal direction.
+                    string[] cardinalDirections = { "N", "E", "S", "W", };
+                    int sector = (int)(angle / 90);
+
+                    // Return the cardinal direction corresponding to the sector.
+                    return cardinalDirections[sector];
+                }*/
     }
 }
 

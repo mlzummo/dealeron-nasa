@@ -10,6 +10,7 @@ using System.Text.Json;
 using static System.Net.Mime.MediaTypeNames;
 using static webapi.Location;
 using Microsoft.AspNetCore.Components.Routing;
+using static webapi.Rover;
 
 namespace webapi.Controllers;
 
@@ -46,7 +47,7 @@ public class MissionController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> onPostAsync()
     {
-
+        List<Rover> list = new List<Rover>(); // this is our return type
 
 
 
@@ -66,19 +67,20 @@ public class MissionController : ControllerBase
                 );*/
 
         string[] lines = unescapedBody.Split(new string[] { "\r\n", "\r", "\n"}, StringSplitOptions.None);
+
         int[] mapBoundary = lines[0].Split(' ').Select(int.Parse).ToArray();
 
-        try
-        {
-            Map map = new Map(mapBoundary[0], mapBoundary[1]);
-
-        } catch (Exception ex)
-        {
-            //todo: throw error to console
-        }
+        /*        try
+                {
 
 
-        List<Rover> list = new List<Rover>();
+                } catch (Exception ex)
+                {
+                    //todo: throw error to console
+                }*/
+
+        Map map = new Map(mapBoundary[0], mapBoundary[1]);
+
 
         for (int i = 1; i < lines.Count(); i+=2)
         {
@@ -86,10 +88,19 @@ public class MissionController : ControllerBase
             //secion 1
             // we are grabbing two at a time an incrimenting +=2 
             // lets create a location struct, with all the goodies ( see LocationStruct.cs for details)
+
+            /*            string[] position = lines[i].Split(' ');
+                        Orientation orientation = (Orientation)Enum.Parse(typeof(Orientation), position[2]);
+                        Location roverLocation = new Location(orientation, int.Parse(position[0]), int.Parse(position[1]));
+                        Rover rover = new Rover(roverLocation);*/
+
             string[] position = lines[i].Split(' ');
-            Orientation orientation = (Orientation)Enum.Parse(typeof(Orientation), position[2]);
-            Location roverLocation = new Location(orientation, int.Parse(position[0]), int.Parse(position[1]));
-            Rover rover = new Rover(roverLocation);
+            Heading heading = (Heading)Enum.Parse(typeof(Heading), position[2]);
+           /* Location roverLocation = new Location(heading, int.Parse(position[0]), int.Parse(position[1]));*/
+            Rover rover = new Rover(map);
+            rover.x = int.Parse(position[0]);
+            rover.y = int.Parse(position[1]);
+            rover.heading = heading;
 
             // section 2
             // we are grabbing two at a time an incrimenting +=2 

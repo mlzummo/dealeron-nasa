@@ -74,13 +74,15 @@ import TextAreaVue from './TextAreaVue.vue'
 async function test() {
     /*                    let number1 = await term2.input("First number to add")
                         let number2 = await term2.input("Second number to add")*/
-    let input = await term2.input("Enter Input");
+    let input = await term2.input("Enter Input:");
     let response = await send(input);
 
-    response.then(
-        term2.output(response)
-    );
-
+    console.log(response)
+    term2.output("Output:")
+    response.forEach((obj: any) => {
+        let arr = [obj.x, obj.y, obj.direction];
+        term2.output(arr.join(' '));
+    });
     setTimeout(basicTerminalApp, input)
 
 
@@ -104,7 +106,7 @@ async function test() {
                             body: JSON.stringify(data)
                         }
                     );
-                    return await response.json(); // return response from mars
+                    return response.json(); // return response from mars
                 } catch (error) {
                     console.error('Error: (re)enter');
                 }
@@ -161,7 +163,7 @@ async function test() {
 
 
                     
-                    setTimeout(basicTerminalApp,input)
+                   /* setTimeout(basicTerminalApp,input)*/
                 }
 
             basicTerminalApp()
