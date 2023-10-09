@@ -43,51 +43,49 @@ import TextAreaVue from './TextAreaVue.vue'
             // initialize a Terminal via Termino.js
 
            
-                let term2 = Termino(document.getElementById("termino"))
+            let term2 = Termino(document.getElementById("termino"))
 
-      /*          function print_hello_world() {
-                    term2.output("hello world")
-                }*/
-
-                help();
+            help();
 
 
-                async function help() {
+            async function help() { // todo: mount these on vue methods
 
-                    const msg = [
-                        'Welcome to NASA Mars Mission Control!\n',
-                        '1. Print Hello World\n',
-                        '2. Add Two Numbers\n',
-                        '3. Initialize Map\n',
-                        '4. Enter Rover Instructions',
-                        'test. Start Test'
-                    ];
+/*                const msg = [
+                    'Welcome to NASA Mars Mission Control!\n',
+                    '1. Print Hello World\n',
+                    '2. Add Two Numbers\n',
+                    '3. Initialize Map (DOES NOT WORK)\n',
+                    '4. Enter Rover Instructions',
+                    'test. Start Test'
+                ];*/
 
-                    msg.forEach((line) => {
-                        term2.output(line);
-                    })
+                const msg = [
+                    'Welcome to NASA Mars Mission Control!\n',
+                    'test. type "test" to enter control block\n'
+                ];
 
-                    
-                }
+                msg.forEach((line) => {
+                    term2.output(line);
+                }) 
 
+            }
 
-async function test() {
+            async function test() { // // todo: mount these on vue methods
 
-    
-    let input = await term2.input("Enter Input:");
-    let response = await send(input);
+                let input = await term2.input("Enter Input:");
+                let response = await send(input);
 
-    console.log(response)
-    term2.output("Output:")
-    response.forEach((obj: any) => {
-        let arr = [obj.x, obj.y, obj.direction];
-        term2.output(arr.join(' '));
-    });
-    setTimeout(basicTerminalApp, input)
+                console.log(response)
+                term2.output("Output:")
+                response.forEach((obj: any) => {
+                    let arr = [obj.x, obj.y, obj.direction];
+                    term2.output(arr.join(' '));
+                });
+                setTimeout(basicTerminalApp, input)
 
-} // end test
+            } // end test
 
-            async function send(data: String) {
+            async function send(data: String) { // todo: make this a more generalized function (this is quick an dirty)
                 try {
                     const response = await fetch('mission',
                         {
@@ -106,60 +104,23 @@ async function test() {
             }
 
 
-                async function basicTerminalApp() {
+            async function basicTerminalApp() {
 
-                    let input = await term2.input("")
+                let input = await term2.input("")
 
-                    // procedural
-                    /*                let init = await term2.input("");*/
+                switch (input) {
+                    case "test": test();
+                        break;
+                    case "help": help();
+                        break;
+                    default: break
 
-
-                    /*let input = await term2.input("What would you like to do?")*/
-
-
-
-                    switch (input) {
-                        case "test": test();
-                            break;
-                        case "help": help();
-                            break;
-                        default: break
-
-                    }
-      /*              if (input === "test") {
-                        await test() // example of running your own custom function
-                    }*/
-
-
-
-
-
-
-
-
-                    /*                methods: {
-                                        fetchData(): void {
-                                            this.post = null;
-                                            this.loading = true;
-                
-                                            fetch('weatherforecast')
-                                        .then(r => r.json())
-                                                .then(json => {
-                                                    this.post = json as Forecasts;
-                                                    this.loading = false;
-                                                    return;
-                                                });
-                                        }
-                                    },
-                    */
-
-
-
-                    
-                   /* setTimeout(basicTerminalApp,input)*/
                 }
 
-            basicTerminalApp()
+                setTimeout(basicTerminalApp,input) // wait for next input (dirty hack)
+            }
+
+            basicTerminalApp() // init the app since we are in a "global scope" .. i am using a non vue plugin here =/
         },
         created() {
             // fetch the data when the view is created and the data is
@@ -171,34 +132,6 @@ async function test() {
             '$route': 'fetchData'
         },
         methods: {
-            initMap(x: number, y: number): Boolean {
-                this.post = null;
-                this.loading = true;
-
-                let map = {
-                    x: x,
-                    y: y
-                }
-
-                const requestOptions = {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(map)
-                };
-
-
-                fetch('/mission/map')
-                    .then(r => r.json())
-                    .then(json => {
-                      /*  this.post = json as Forecasts;*/
-                        this.loading = false;
-                        return;
-                    });
-                return true;
-            },
-            mission() {
-
-            },
         },
     });
 </script>
