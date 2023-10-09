@@ -72,8 +72,8 @@ import TextAreaVue from './TextAreaVue.vue'
 
 
 async function test() {
-    /*                    let number1 = await term2.input("First number to add")
-                        let number2 = await term2.input("Second number to add")*/
+
+    
     let input = await term2.input("Enter Input:");
     let response = await send(input);
 
@@ -85,13 +85,6 @@ async function test() {
     });
     setTimeout(basicTerminalApp, input)
 
-
-    // do logic to determine if its a valid input param
-
-    // do rest call and return to terminal
-
-
-    /*term2.output(Number(number1) + Number(number2));*/
 } // end test
 
             async function send(data: String) {
