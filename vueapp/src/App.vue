@@ -8,7 +8,6 @@
 <template>
     <header>
         <img alt="Vue logo" class="logo" src="./assets/imgbin_mars-png.png" width="150" height="150" />
-        <!--<img alt="Vue logo" class="logo" src="./assets/nasa_mars_1.webp" width="125" height="125" />-->
 
         <div class="wrapper">
             <HelloWorld msg="You did it!" />
@@ -16,10 +15,7 @@
     </header>
 
     <main>
-        <!--  <TheWelcome />-->
-        <!--<Index /> -->
         <TerminoVue />
-
         <h2>Example</h2>
         <pre>
 Input:
@@ -36,7 +32,7 @@ Output:
 1 3 N
 5 1 E
         </pre>
-
+        
     </main>
 </template>
 
