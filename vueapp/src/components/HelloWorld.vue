@@ -52,9 +52,6 @@
                 
                 <span>Christa McAuliffe, teacher and Challenger astronaut</span>
             </blockquote>
-            Note: There is bugs. I am aware of them. Creating this has been a rewarding opportunity to explore JS terminal console interfaces and challenges, as well as some .NET concepts, and other approaches to reimplimenting.
-            -Boundary checking being one of them. see the README.MD file
-
         </div>
     </div>
 </template>

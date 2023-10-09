@@ -32,8 +32,13 @@ Output:
 1 3 N
 5 1 E
         </pre>
-        
+        <div>
+            Note: There is bugs. I am aware of them. Creating this has been a rewarding opportunity to explore JS terminal console interfaces and challenges, as well as some .NET concepts, and other approaches to reimplimenting.
+            -Boundary checking being one of them. see the README.MD file
+
+        </div>
     </main>
+
 </template>
 
 <style scoped>
